@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>María Isidora — Locutora y Actriz de Doblaje</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14121B;--ink-2:#221F2E;--paper:#F7F4EF;--sand:#ECE6DA;
+    --coral:#FF5A4E;--violet:#6C4CF1;--text-soft:#8E88A0;--text-on-paper:#3C384A;--radius:14px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--paper);color:var(--text-on-paper);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  .display{font-family:'Space Grotesk',sans-serif;}
+  .wave{display:flex;align-items:flex-end;gap:4px;height:28px;}
+  .wave span{width:3px;background:var(--coral);border-radius:2px;animation:wv 1.1s ease-in-out infinite;}
+  .wave span:nth-child(even){background:var(--violet);}
+  .wave span:nth-child(1){height:40%;animation-delay:-1.1s;}
+  .wave span:nth-child(2){height:80%;animation-delay:-0.9s;}
+  .wave span:nth-child(3){height:55%;animation-delay:-0.7s;}
+  .wave span:nth-child(4){height:100%;animation-delay:-0.5s;}
+  .wave span:nth-child(5){height:65%;animation-delay:-0.3s;}
+  .wave span:nth-child(6){height:35%;animation-delay:-0.1s;}
+  @keyframes wv{0%,100%{transform:scaleY(0.4);}50%{transform:scaleY(1);}}
+  header{position:sticky;top:0;z-index:50;background:rgba(20,18,27,0.92);backdrop-filter:blur(8px);color:var(--paper);}
+  nav{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:18px 28px;}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;font-size:1.05rem;}
+  .nav-links{display:flex;gap:32px;font-size:.9rem;color:var(--text-soft);}
+  .nav-links a:hover{color:var(--paper);}
+  .cta-btn{background:var(--coral);color:var(--ink);padding:9px 18px;border-radius:999px;font-size:.85rem;font-weight:600;white-space:nowrap;}
+  .hero{background:var(--ink);color:var(--paper);padding:80px 28px 60px;text-align:center;}
+  .hero-inner{max-width:820px;margin:0 auto;}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--coral);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:22px;}
+  h1.headline{font-size:clamp(2rem,5vw,3.6rem);line-height:1.1;font-weight:700;letter-spacing:-0.02em;margin:0 auto 18px;}
+  h1.headline .accent{color:var(--coral);}
+  .hero-sub{max-width:520px;margin:0 auto 34px;color:var(--text-soft);font-size:1.05rem;line-height:1.6;}
+  .hero-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+  .btn-primary{background:var(--coral);color:var(--ink);padding:14px 26px;border-radius:999px;font-weight:600;font-size:.95rem;}
+  .btn-ghost{border:1px solid rgba(247,244,239,0.25);color:var(--paper);padding:14px 26px;border-radius:999px;font-weight:600;font-size:.95rem;}
+  .filter-bar{position:sticky;top:66px;z-index:40;background:var(--paper);border-bottom:1px solid #E3DCCD;padding:16px 28px;}
+  .filter-inner{max-width:1180px;margin:0 auto;display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+  .filter-label{font-size:.78rem;color:var(--text-soft);margin-right:6px;}
+  .chip{font-family:'IBM Plex Mono',monospace;font-size:.78rem;padding:8px 16px;border-radius:999px;border:1px solid #DBD3C1;background:#fff;color:var(--text-on-paper);cursor:pointer;}
+  .chip.active{background:var(--ink);border-color:var(--ink);color:var(--paper);}
+  .work-section{max-width:1180px;margin:0 auto;padding:44px 28px 90px;}
+  .section-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:30px;flex-wrap:wrap;gap:14px;}
+  .section-head h2{font-family:'Space Grotesk',sans-serif;font-size:1.7rem;font-weight:600;}
+  .section-count{color:var(--text-soft);font-size:.85rem;font-family:'IBM Plex Mono',monospace;}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .card{background:#fff;border-radius:var(--radius);overflow:hidden;border:1px solid #EAE3D3;display:flex;flex-direction:column;transition:transform .15s ease;}
+  .card:hover{transform:translateY(-3px);}
+  .thumb{position:relative;aspect-ratio:16/9;background:var(--ink);cursor:pointer;overflow:hidden;}
+  .thumb img{width:100%;height:100%;object-fit:cover;display:block;opacity:.85;}
+  .thumb:hover img{opacity:1;}
+  .thumb iframe{width:100%;height:100%;border:0;display:block;}
+  .play-btn{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(0deg, rgba(20,18,27,0.55), rgba(20,18,27,0.05));}
+  .play-circle{width:48px;height:48px;border-radius:50%;background:var(--coral);display:flex;align-items:center;justify-content:center;}
+  .play-circle svg{width:16px;height:16px;fill:var(--ink);margin-left:2px;}
+  .thumb-pending{background:repeating-linear-gradient(135deg,#221F2E,#221F2E 10px,#2A2738 10px,#2A2738 20px);display:flex;align-items:center;justify-content:center;}
+  .pending-note{color:#B9B4C6;font-family:'IBM Plex Mono',monospace;font-size:.72rem;text-align:center;line-height:1.5;padding:10px;}
+  .card-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column;gap:6px;}
+  .tag{font-family:'IBM Plex Mono',monospace;font-size:.64rem;color:var(--violet);text-transform:uppercase;letter-spacing:.04em;}
+  .card-body h3{font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:600;}
+  footer{background:var(--ink-2);color:var(--paper);padding:60px 28px 34px;text-align:center;}
+  footer h2{font-family:'Space Grotesk',sans-serif;font-size:2rem;max-width:520px;margin:0 auto 26px;}
+  .contact-links{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:30px;}
+  .contact-links a{font-size:1rem;font-weight:600;color:var(--paper);}
+  .contact-links a:hover{color:var(--coral);}
+  .footer-bottom{color:var(--text-soft);font-size:.78rem;font-family:'IBM Plex Mono',monospace;}
+  @media (max-width:860px){.nav-links{display:none;}.grid{grid-template-columns:repeat(2,1fr);}.filter-bar{top:64px;}}
+  @media (max-width:560px){.grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="brand"><div class="wave"><span></span><span></span><span></span><span></span><span></span><span></span></div>María Isidora</div>
+    <div class="nav-links"><a href="#trabajos">Trabajos</a><a href="#contacto">Contacto</a></div>
+    <a href="https://wa.me/56974507962" class="cta-btn">Hablemos</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow mono"><div class="wave"><span></span><span></span><span></span><span></span><span></span><span></span></div>Locutora · Actriz de doblaje</div>
+    <h1 class="headline display">La voz que <span class="accent">conecta</span> tu marca con el mundo digital</h1>
+    <p class="hero-sub">TV, radio, doblaje, personajes y contenido digital. Más de una década poniéndole voz a marcas como McDonald's, Toyota, Samsung y Duoc UC.</p>
+    <div class="hero-actions">
+      <a href="#trabajos" class="btn-primary">Ver trabajos</a>
+      <a href="https://wa.me/56974507962" class="btn-ghost">Escribir por WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<div class="filter-bar">
+  <div class="filter-inner">
+    <span class="filter-label mono">FILTRAR:</span>
+    <button class="chip active" data-filter="all">Todos</button>
+    <button class="chip" data-filter="radio">Radio</button>
+    <button class="chip" data-filter="rrss">Digital & RRSS</button>
+    <button class="chip" data-filter="tv">YouTube y TV</button>
+    <button class="chip" data-filter="corp">Corporativo</button>
+    <button class="chip" data-filter="doblaje">Doblaje & Personajes</button>
+    <button class="chip" data-filter="ia">Estilo IA</button>
+    <button class="chip" data-filter="podcast">Podcast & Tiendas</button>
+  </div>
+</div>
+
+<section class="work-section" id="trabajos">
+  <div class="section-head">
+    <h2>Trabajos</h2>
+    <span class="section-count mono" id="count-label">70 proyectos</span>
+  </div>
+  <div class="grid" id="grid">
+<div class="card" data-cat="radio">
+  <div class="thumb" data-id="D8clv8599bs">
+    <img src="https://img.youtube.com/vi/D8clv8599bs/hqdefault.jpg" alt="Radio Play FM y 13C">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">Radio</span><h3>Radio Play FM y 13C</h3></div>
+</div>
+<div class="card" data-cat="rrss">
+  <div class="thumb" data-id="kxExt7BFeYg">
+    <img src="https://img.youtube.com/vi/kxExt7BFeYg/hqdefault.jpg" alt="Bridgerton (Benjamin Vicuña)">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">Digital & RRSS</span><h3>Bridgerton (Benjamin Vicuña)</h3></div>
+</div>
+<div class="card" data-cat="rrss">
+  <div class="thumb" data-id="ATPBUFz3foA">
+    <img src="https://img.youtube.com/vi/ATPBUFz3foA/hqdefault.jpg" alt="Chiletur">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">Digital & RRSS</span><h3>Chiletur</h3></div>
+</div>
+<div class="card" data-cat="radio">
+  <div class="thumb" data-id="FWX5p1LldSI">
+    <img src="https://img.youtube.com/vi/FWX5p1LldSI/hqdefault.jpg" alt="Personajes Radio">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">Radio</span><h3>Personajes Radio</h3></div>
+</div>
+<div class="card" data-cat="tv">
+  <div class="thumb" data-id="k3Ewt7xryKw">
+    <img src="https://img.youtube.com/vi/k3Ewt7xryKw/hqdefault.jpg" alt="MINVU">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">YouTube y TV</span><h3>MINVU</h3></div>
+</div>
+<div class="card" data-cat="tv">
+  <div class="thumb" data-id="7rMmxCi-iuM">
+    <img src="https://img.youtube.com/vi/7rMmxCi-iuM/hqdefault.jpg" alt="Skechers">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">YouTube y TV</span><h3>Skechers</h3></div>
+</div>
+<div class="card" data-cat="rrss">
+  <div class="thumb" data-id="lurIq2CK8iE">
+    <img src="https://img.youtube.com/vi/lurIq2CK8iE/hqdefault.jpg" alt="Dominos Pizza">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">Digital & RRSS</span><h3>Dominos Pizza</h3></div>
+</div>
+<div class="card" data-cat="ia">
+  <div class="thumb" data-id="J_ddP51oLAU">
+    <img src="https://img.youtube.com/vi/J_ddP51oLAU/hqdefault.jpg" alt="Voz Estilo Gemini (Ripley)">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">Estilo IA</span><h3>Voz Estilo Gemini (Ripley)</h3></div>
+</div>
+<div class="card" data-cat="rrss">
+  <div class="thumb" data-id="hkl2Iis9MAY">
+    <img src="https://img.youtube.com/vi/hkl2Iis9MAY/hqdefault.jpg" alt="Schick">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">Digital & RRSS</span><h3>Schick</h3></div>
+</div>
+<div class="card" data-cat="corp">
+  <div class="thumb" data-id="N5QCHKcbi2A">
+    <img src="https://img.youtube.com/vi/N5QCHKcbi2A/hqdefault.jpg" alt="WEG">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">Corporativo</span><h3>WEG</h3></div>
+</div>
+<div class="card" data-cat="tv">
+  <div class="thumb" data-id="9FUds8zgehE">
+    <img src="https://img.youtube.com/vi/9FUds8zgehE/hqdefault.jpg" alt="Samsung">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">YouTube y TV</span><h3>Samsung</h3></div>
+</div>
+<div class="card" data-cat="radio">
+  <div class="thumb" data-id="urGsLa6Luz0">
+    <img src="https://img.youtube.com/vi/urGsLa6Luz0/hqdefault.jpg" alt="Mas Radio">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">Radio</span><h3>Mas Radio</h3></div>
+</div>
+<div class="card" data-cat="rrss">
+  <div class="thumb" data-id="A7WfTeI3dnA">
+    <img src="https://img.youtube.com/vi/A7WfTeI3dnA/hqdefault.jpg" alt="Duoc UC">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">Digital & RRSS</span><h3>Duoc UC</h3></div>
+</div>
+<div class="card" data-cat="doblaje tv">
+  <div class="thumb" data-id="hOom59QtHZs">
+    <img src="https://img.youtube.com/vi/hOom59QtHZs/hqdefault.jpg" alt="Crush">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">Doblaje & Personajes · YouTube y TV</span><h3>Crush</h3></div>
+</div>
+<div class="card" data-cat="rrss">
+  <div class="thumb" data-id="ap4y0QtK27c">
+    <img src="https://img.youtube.com/vi/ap4y0QtK27c/hqdefault.jpg" alt="Not Burguer - NotCo">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">Digital & RRSS</span><h3>Not Burguer - NotCo</h3></div>
+</div>
+<div class="card" data-cat="corp">
+  <div class="thumb" data-id="9AzSIkBe6Zs">
+    <img src="https://img.youtube.com/vi/9AzSIkBe6Zs/hqdefault.jpg" alt="Camara Chilena de la Construcción">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">Corporativo</span><h3>Camara Chilena de la Construcción</h3></div>
+</div>
+<div class="card" data-cat="tv rrss">
+  <div class="thumb" data-id="a3cnAVE7Ibg">
+    <img src="https://img.youtube.com/vi/a3cnAVE7Ibg/hqdefault.jpg" alt="Copec">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">YouTube y TV · Digital & RRSS</span><h3>Copec</h3></div>
+</div>
+<div class="card" data-cat="doblaje">
+  <div class="thumb" data-id="6XiZY20WJUY">
+    <img src="https://img.youtube.com/vi/6XiZY20WJUY/hqdefault.jpg" alt="Doblaje Latino">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">Doblaje & Personajes</span><h3>Doblaje Latino</h3></div>
+</div>
+<div class="card" data-cat="tv">
+  <div class="thumb" data-id="QlLpBbt3_tM">
+    <img src="https://img.youtube.com/vi/QlLpBbt3_tM/hqdefault.jpg" alt="Toyota">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">YouTube y TV</span><h3>Toyota</h3></div>
+</div>
+<div class="card" data-cat="tv">
+  <div class="thumb" data-id="VFMguVgckFc">
+    <img src="https://img.youtube.com/vi/VFMguVgckFc/hqdefault.jpg" alt="Twistos">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">YouTube y TV</span><h3>Twistos</h3></div>
+</div>
+<div class="card" data-cat="ia">
+  <div class="thumb" data-id="nuECF5R9PvI">
+    <img src="https://img.youtube.com/vi/nuECF5R9PvI/hqdefault.jpg" alt="Estilo IA (Robot)">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">Estilo IA</span><h3>Estilo IA (Robot)</h3></div>
+</div>
+<div class="card" data-cat="rrss">
+  <div class="thumb" data-id="Hkv1Xx78_W8">
+    <img src="https://img.youtube.com/vi/Hkv1Xx78_W8/hqdefault.jpg" alt="Samsung Galaxy Z Fold - Somosflex">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">Digital & RRSS</span><h3>Samsung Galaxy Z Fold - Somosflex</h3></div>
+</div>
+<div class="card" data-cat="doblaje">
+  <div class="thumb" data-id="tsYZYa6d9T0">
+    <img src="https://img.youtube.com/vi/tsYZYa6d9T0/hqdefault.jpg" alt="Rascapoto y Bolita">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">Doblaje & Personajes</span><h3>Rascapoto y Bolita</h3></div>
+</div>
+<div class="card" data-cat="rrss">
+  <div class="thumb" data-id="A2nuPIvBzLo">
+    <img src="https://img.youtube.com/vi/A2nuPIvBzLo/hqdefault.jpg" alt="Germania Motorcycles">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">Digital & RRSS</span><h3>Germania Motorcycles</h3></div>
+</div>
+<div class="card" data-cat="tv">
+  <div class="thumb" data-id="dKFWiVOuPbA">
+    <img src="https://img.youtube.com/vi/dKFWiVOuPbA/hqdefault.jpg" alt="Animales Chilenos Super Asombrosos">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">YouTube y TV</span><h3>Animales Chilenos Super Asombrosos</h3></div>
+</div>
+<div class="card" data-cat="rrss">
+  <div class="thumb" data-id="ZngwKCmUh94">
+    <img src="https://img.youtube.com/vi/ZngwKCmUh94/hqdefault.jpg" alt="Duoc UC">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">Digital & RRSS</span><h3>Duoc UC</h3></div>
+</div>
+<div class="card" data-cat="doblaje">
+  <div class="thumb" data-id="dVkgAvEgzNc">
+    <img src="https://img.youtube.com/vi/dVkgAvEgzNc/hqdefault.jpg" alt="Cry Babies">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">Doblaje & Personajes</span><h3>Cry Babies</h3></div>
+</div>
+<div class="card" data-cat="corp">
+  <div class="thumb" data-id="NRL3I_92CEU">
+    <img src="https://img.youtube.com/vi/NRL3I_92CEU/hqdefault.jpg" alt="Burguer King">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">Corporativo</span><h3>Burguer King</h3></div>
+</div>
+<div class="card" data-cat="rrss corp podcast">
+  <div class="thumb" data-id="P7iOZ3czyZA">
+    <img src="https://img.youtube.com/vi/P7iOZ3czyZA/hqdefault.jpg" alt="Burguer King - Podcast">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">Digital & RRSS · Corporativo · Podcast & Tiendas</span><h3>Burguer King - Podcast</h3></div>
+</div>
+<div class="card" data-cat="rrss">
+  <div class="thumb" data-id="xOFqk_6ibDo">
+    <img src="https://img.youtube.com/vi/xOFqk_6ibDo/hqdefault.jpg" alt="Aminoxine Plus">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">Digital & RRSS</span><h3>Aminoxine Plus</h3></div>
+</div>
+<div class="card" data-cat="tv">
+  <div class="thumb" data-id="kDIf-4NZxBA">
+    <img src="https://img.youtube.com/vi/kDIf-4NZxBA/hqdefault.jpg" alt="Techo para Chile">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">YouTube y TV</span><h3>Techo para Chile</h3></div>
+</div>
+<div class="card" data-cat="corp">
+  <div class="thumb" data-id="B9EaNoVjaqc">
+    <img src="https://img.youtube.com/vi/B9EaNoVjaqc/hqdefault.jpg" alt="McDonald's">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">Corporativo</span><h3>McDonald's</h3></div>
+</div>
+<div class="card" data-cat="corp">
+  <div class="thumb" data-id="ko9F_1iaXuE">
+    <img src="https://img.youtube.com/vi/ko9F_1iaXuE/hqdefault.jpg" alt="Recimat">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">Corporativo</span><h3>Recimat</h3></div>
+</div>
+<div class="card" data-cat="tv">
+  <div class="thumb" data-id="rHpqrWinKFY">
+    <img src="https://img.youtube.com/vi/rHpqrWinKFY/hqdefault.jpg" alt="Abastible">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">YouTube y TV</span><h3>Abastible</h3></div>
+</div>
+<div class="card" data-cat="rrss">
+  <div class="thumb" data-id="1BPM1Q0XAHE">
+    <img src="https://img.youtube.com/vi/1BPM1Q0XAHE/hqdefault.jpg" alt="4 Fantasticos">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">Digital & RRSS</span><h3>4 Fantasticos</h3></div>
+</div>
+<div class="card" data-cat="tv">
+  <div class="thumb" data-id="I4WDp5n2cAs">
+    <img src="https://img.youtube.com/vi/I4WDp5n2cAs/hqdefault.jpg" alt="Twistos">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">YouTube y TV</span><h3>Twistos</h3></div>
+</div>
+<div class="card" data-cat="rrss">
+  <div class="thumb" data-id="zkDRYDoWc-Q">
+    <img src="https://img.youtube.com/vi/zkDRYDoWc-Q/hqdefault.jpg" alt="Duoc UC">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">Digital & RRSS</span><h3>Duoc UC</h3></div>
+</div>
+<div class="card" data-cat="doblaje">
+  <div class="thumb" data-id="kF_GGRCMh4E">
+    <img src="https://img.youtube.com/vi/kF_GGRCMh4E/hqdefault.jpg" alt="Rascapoto y Bolita">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">Doblaje & Personajes</span><h3>Rascapoto y Bolita</h3></div>
+</div>
+<div class="card" data-cat="tv">
+  <div class="thumb" data-id="xeeHVrhtANs">
+    <img src="https://img.youtube.com/vi/xeeHVrhtANs/hqdefault.jpg" alt="Cannon Home">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">YouTube y TV</span><h3>Cannon Home</h3></div>
+</div>
+<div class="card" data-cat="corp">
+  <div class="thumb" data-id="foGEZz7wdrY">
+    <img src="https://img.youtube.com/vi/foGEZz7wdrY/hqdefault.jpg" alt="Reduca">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">Corporativo</span><h3>Reduca</h3></div>
+</div>
+<div class="card" data-cat="tv">
+  <div class="thumb" data-id="wDXRKuXq5x8">
+    <img src="https://img.youtube.com/vi/wDXRKuXq5x8/hqdefault.jpg" alt="Samsung">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">YouTube y TV</span><h3>Samsung</h3></div>
+</div>
+<div class="card" data-cat="tv">
+  <div class="thumb" data-id="r9RHjE2ljo4">
+    <img src="https://img.youtube.com/vi/r9RHjE2ljo4/hqdefault.jpg" alt="Goodmeal y Carozzi">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">YouTube y TV</span><h3>Goodmeal y Carozzi</h3></div>
+</div>
+<div class="card" data-cat="corp">
+  <div class="thumb" data-id="c6D3kROAsmw">
+    <img src="https://img.youtube.com/vi/c6D3kROAsmw/hqdefault.jpg" alt="Arbel Chile">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">Corporativo</span><h3>Arbel Chile</h3></div>
+</div>
+<div class="card" data-cat="doblaje">
+  <div class="thumb" data-id="kBad4IiNsJc">
+    <img src="https://img.youtube.com/vi/kBad4IiNsJc/hqdefault.jpg" alt="Cry Babies">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">Doblaje & Personajes</span><h3>Cry Babies</h3></div>
+</div>
+<div class="card" data-cat="rrss">
+  <div class="thumb" data-id="qlH1ZuYyweo">
+    <img src="https://img.youtube.com/vi/qlH1ZuYyweo/hqdefault.jpg" alt="Duoc UC">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">Digital & RRSS</span><h3>Duoc UC</h3></div>
+</div>
+<div class="card" data-cat="tv">
+  <div class="thumb" data-id="1YV1eB0Dsl8">
+    <img src="https://img.youtube.com/vi/1YV1eB0Dsl8/hqdefault.jpg" alt="Abastible">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">YouTube y TV</span><h3>Abastible</h3></div>
+</div>
+<div class="card" data-cat="rrss tv podcast">
+  <div class="thumb" data-id="CY71ubvHr5g">
+    <img src="https://img.youtube.com/vi/CY71ubvHr5g/hqdefault.jpg" alt="Mi Mall Cencosud">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">Digital & RRSS · YouTube y TV · Podcast & Tiendas</span><h3>Mi Mall Cencosud</h3></div>
+</div>
+<div class="card" data-cat="tv">
+  <div class="thumb" data-id="v5RD_vvgZgU">
+    <img src="https://img.youtube.com/vi/v5RD_vvgZgU/hqdefault.jpg" alt="Twistos">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">YouTube y TV</span><h3>Twistos</h3></div>
+</div>
+<div class="card" data-cat="corp">
+  <div class="thumb" data-id="A6NEedEXMG0">
+    <img src="https://img.youtube.com/vi/A6NEedEXMG0/hqdefault.jpg" alt="Campaña Violencia contra Personas Mayores - NODO">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">Corporativo</span><h3>Campaña Violencia contra Personas Mayores - NODO</h3></div>
+</div>
+<div class="card" data-cat="doblaje">
+  <div class="thumb" data-id="YEiM6r-gQxM">
+    <img src="https://img.youtube.com/vi/YEiM6r-gQxM/hqdefault.jpg" alt="Rascapoto y Bolita">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">Doblaje & Personajes</span><h3>Rascapoto y Bolita</h3></div>
+</div>
+<div class="card" data-cat="tv">
+  <div class="thumb" data-id="OZNs1r8fQM0">
+    <img src="https://img.youtube.com/vi/OZNs1r8fQM0/hqdefault.jpg" alt="Samsung">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">YouTube y TV</span><h3>Samsung</h3></div>
+</div>
+<div class="card card-pending" data-cat="rrss">
+  <div class="thumb thumb-pending">
+    <div class="pending-note">Video pr&oacute;ximamente</div>
+  </div>
+  <div class="card-body"><span class="tag">Digital & RRSS</span><h3>App Mi Mall Cencosud</h3></div>
+</div>
+<div class="card" data-cat="rrss tv podcast">
+  <div class="thumb" data-id="3q6zvAQeuQ8">
+    <img src="https://img.youtube.com/vi/3q6zvAQeuQ8/hqdefault.jpg" alt="Mi Mall Cencosud">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">Digital & RRSS · YouTube y TV · Podcast & Tiendas</span><h3>Mi Mall Cencosud</h3></div>
+</div>
+<div class="card" data-cat="tv">
+  <div class="thumb" data-id="3DzJhu4HgCI">
+    <img src="https://img.youtube.com/vi/3DzJhu4HgCI/hqdefault.jpg" alt="Goodmeal y Carozzi">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">YouTube y TV</span><h3>Goodmeal y Carozzi</h3></div>
+</div>
+<div class="card card-pending" data-cat="tv">
+  <div class="thumb thumb-pending">
+    <div class="pending-note">Video pr&oacute;ximamente</div>
+  </div>
+  <div class="card-body"><span class="tag">YouTube y TV</span><h3>Colgate</h3></div>
+</div>
+<div class="card" data-cat="corp">
+  <div class="thumb" data-id="QMhrVlwa06Q">
+    <img src="https://img.youtube.com/vi/QMhrVlwa06Q/hqdefault.jpg" alt="Campaña Violencia contra Personas Mayores - NODO">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">Corporativo</span><h3>Campaña Violencia contra Personas Mayores - NODO</h3></div>
+</div>
+<div class="card" data-cat="corp">
+  <div class="thumb" data-id="LhSIU5LYLJk">
+    <img src="https://img.youtube.com/vi/LhSIU5LYLJk/hqdefault.jpg" alt="Inchalam / Adapta Clima">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">Corporativo</span><h3>Inchalam / Adapta Clima</h3></div>
+</div>
+<div class="card" data-cat="corp">
+  <div class="thumb" data-id="Blb1wS6JoE8">
+    <img src="https://img.youtube.com/vi/Blb1wS6JoE8/hqdefault.jpg" alt="Campaña Violencia contra Personas Mayores - NODO">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">Corporativo</span><h3>Campaña Violencia contra Personas Mayores - NODO</h3></div>
+</div>
+<div class="card" data-cat="ia">
+  <div class="thumb" data-id="36B2wE1NndM">
+    <img src="https://img.youtube.com/vi/36B2wE1NndM/hqdefault.jpg" alt="Voz Estilo IA (Entel)">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">Estilo IA</span><h3>Voz Estilo IA (Entel)</h3></div>
+</div>
+<div class="card" data-cat="rrss">
+  <div class="thumb" data-id="PO_q3bmL10g">
+    <img src="https://img.youtube.com/vi/PO_q3bmL10g/hqdefault.jpg" alt="Dominos Pizza">
+    <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  </div>
+  <div class="card-body"><span class="tag">Digital & RRSS</span><h3>Dominos Pizza</h3></div>
+</div>
+<div class="card card-pending" data-cat="corp">
+  <div class="thumb thumb-pending">
+    <div class="pending-note">Video pr&oacute;ximamente</div>
+  </div>
+  <div class="card-body"><span class="tag">Corporativo</span><h3>Burguer King</h3></div>
+</div>
+<div class="card card-pending" data-cat="rrss">
+  <div class="thumb thumb-pending">
+    <div class="pending-note">Video pr&oacute;ximamente</div>
+  </div>
+  <div class="card-body"><span class="tag">Digital & RRSS</span><h3>Chiletur</h3></div>
+</div>
+<div class="card card-pending" data-cat="rrss">
+  <div class="thumb thumb-pending">
+    <div class="pending-note">Video pr&oacute;ximamente</div>
+  </div>
+  <div class="card-body"><span class="tag">Digital & RRSS</span><h3>Samsung Galaxy Z Fold - Somosflex</h3></div>
+</div>
+<div class="card card-pending" data-cat="doblaje">
+  <div class="thumb thumb-pending">
+    <div class="pending-note">Video pr&oacute;ximamente</div>
+  </div>
+  <div class="card-body"><span class="tag">Doblaje & Personajes</span><h3>Doblaje Latino</h3></div>
+</div>
+<div class="card card-pending" data-cat="doblaje">
+  <div class="thumb thumb-pending">
+    <div class="pending-note">Video pr&oacute;ximamente</div>
+  </div>
+  <div class="card-body"><span class="tag">Doblaje & Personajes</span><h3>Doblaje Latino</h3></div>
+</div>
+<div class="card card-pending" data-cat="doblaje">
+  <div class="thumb thumb-pending">
+    <div class="pending-note">Video pr&oacute;ximamente</div>
+  </div>
+  <div class="card-body"><span class="tag">Doblaje & Personajes</span><h3>Doblaje Latino</h3></div>
+</div>
+<div class="card card-pending" data-cat="rrss">
+  <div class="thumb thumb-pending">
+    <div class="pending-note">Video pr&oacute;ximamente</div>
+  </div>
+  <div class="card-body"><span class="tag">Digital & RRSS</span><h3>Germania Motorcycles</h3></div>
+</div>
+<div class="card card-pending" data-cat="tv">
+  <div class="thumb thumb-pending">
+    <div class="pending-note">Video pr&oacute;ximamente</div>
+  </div>
+  <div class="card-body"><span class="tag">YouTube y TV</span><h3>Abastible</h3></div>
+</div>
+<div class="card card-pending" data-cat="tv">
+  <div class="thumb thumb-pending">
+    <div class="pending-note">Video pr&oacute;ximamente</div>
+  </div>
+  <div class="card-body"><span class="tag">YouTube y TV</span><h3>Abastible</h3></div>
+</div>
+<div class="card card-pending" data-cat="corp">
+  <div class="thumb thumb-pending">
+    <div class="pending-note">Video pr&oacute;ximamente</div>
+  </div>
+  <div class="card-body"><span class="tag">Corporativo</span><h3>Inchalam / Adapta Clima</h3></div>
+</div>  </div>
+</section>
+
+<footer id="contacto">
+  <h2 class="display">¿Tienes un proyecto? Grabemos tu próxima campaña.</h2>
+  <div class="contact-links">
+    <a href="https://wa.me/56974507962">WhatsApp →</a>
+    <a href="mailto:maria.escobudge@gmail.com">maria.escobudge@gmail.com →</a>
+  </div>
+  <div class="footer-bottom">© 2026 María Isidora — Locutora &amp; actriz de doblaje</div>
+</footer>
+
+<script>
+  const chips = document.querySelectorAll('.chip');
+  const cards = document.querySelectorAll('.card');
+  const countLabel = document.getElementById('count-label');
+  chips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      chips.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      const filter = chip.dataset.filter;
+      let visible = 0;
+      cards.forEach(card => {
+        const cardCats = card.dataset.cat.split(' ');
+        const show = filter === 'all' || cardCats.includes(filter);
+        card.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+      countLabel.textContent = visible + ' proyecto' + (visible === 1 ? '' : 's');
+    });
+  });
+  document.querySelectorAll('.thumb[data-id]').forEach(thumb => {
+    thumb.addEventListener('click', () => {
+      const id = thumb.dataset.id;
+      thumb.innerHTML = `<iframe src="https://www.youtube.com/embed/${id}?autoplay=1" title="video" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
+    });
+  });
+</script>
+
+</body>
+</html>
