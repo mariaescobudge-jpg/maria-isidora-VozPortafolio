@@ -47,6 +47,9 @@
   .filter-label{font-size:.78rem;color:var(--text-soft);margin-right:6px;}
   .chip{font-family:'IBM Plex Mono',monospace;font-size:.78rem;padding:8px 16px;border-radius:999px;border:1px solid #DBD3C1;background:#fff;color:var(--text-on-paper);cursor:pointer;}
   .chip.active{background:var(--ink);border-color:var(--ink);color:var(--paper);}
+  .search-box{font-family:'Inter',sans-serif;font-size:.85rem;padding:8px 16px;border-radius:999px;border:1px solid #DBD3C1;background:#fff;color:var(--text-on-paper);width:220px;outline:none;}
+  .search-box:focus{border-color:var(--coral);}
+  .search-box::placeholder{color:var(--text-soft);}
   .work-section{max-width:1180px;margin:0 auto;padding:44px 28px 90px;}
   .section-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:30px;flex-wrap:wrap;gap:14px;}
   .section-head h2{font-family:'Space Grotesk',sans-serif;font-size:1.7rem;font-weight:600;}
@@ -100,6 +103,7 @@
 
 <div class="filter-bar">
   <div class="filter-inner">
+    <input type="text" id="search-input" class="search-box mono" placeholder="Buscar por nombre...">
     <span class="filter-label mono">FILTRAR:</span>
     <button class="chip active" data-filter="all">Todos</button>
     <button class="chip" data-filter="radio">Radio</button>
@@ -519,10 +523,10 @@
 </div>
 <div class="card" data-cat="corp">
   <div class="thumb" data-id="LhSIU5LYLJk">
-    <img src="https://img.youtube.com/vi/LhSIU5LYLJk/hqdefault.jpg" alt="Inchalam / Adapta Clima">
+    <img src="https://img.youtube.com/vi/LhSIU5LYLJk/hqdefault.jpg" alt="Adapta Clima">
     <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
   </div>
-  <div class="card-body"><span class="tag">Corporativo</span><h3>Inchalam / Adapta Clima</h3></div>
+  <div class="card-body"><span class="tag">Corporativo</span><h3>Adapta Clima</h3></div>
 </div>
 <div class="card" data-cat="corp">
   <div class="thumb" data-id="Blb1wS6JoE8">
@@ -560,8 +564,8 @@
   <div class="card-body"><span class="tag">Doblaje & Personajes</span><h3>Doblaje Latino - Paw Patrol (Boomer)</h3></div>
 </div>
 <div class="card" data-cat="doblaje">
-  <div class="thumb" data-id="sJRP7LXu8iU">
-    <img src="https://img.youtube.com/vi/sJRP7LXu8iU/hqdefault.jpg" alt="Doblaje Latino">
+  <div class="thumb" data-id="nGLE9JB-fd0">
+    <img src="https://img.youtube.com/vi/nGLE9JB-fd0/hqdefault.jpg" alt="Doblaje Latino">
     <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
   </div>
   <div class="card-body"><span class="tag">Doblaje & Personajes</span><h3>Doblaje Latino</h3></div>
@@ -596,7 +600,7 @@
   <div class="thumb thumb-pending">
     <div class="pending-note">Video pr&oacute;ximamente</div>
   </div>
-  <div class="card-body"><span class="tag">Corporativo</span><h3>Inchalam / Adapta Clima</h3></div>
+  <div class="card-body"><span class="tag">Corporativo</span><h3>Inchalam</h3></div>
 </div>
 <div class="card" data-cat="rrss">
   <div class="thumb" data-id="ATPBUFz3foA">
@@ -628,21 +632,35 @@
   const chips = document.querySelectorAll('.chip');
   const cards = document.querySelectorAll('.card');
   const countLabel = document.getElementById('count-label');
+  const searchInput = document.getElementById('search-input');
+  let activeFilter = 'all';
+
+  function applyFilters() {
+    const query = searchInput.value.trim().toLowerCase();
+    let visible = 0;
+    cards.forEach(card => {
+      const cardCats = card.dataset.cat.split(' ');
+      const matchesCategory = activeFilter === 'all' || cardCats.includes(activeFilter);
+      const title = card.querySelector('h3').textContent.toLowerCase();
+      const matchesSearch = query === '' || title.includes(query);
+      const show = matchesCategory && matchesSearch;
+      card.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+    countLabel.textContent = visible + ' proyecto' + (visible === 1 ? '' : 's');
+  }
+
   chips.forEach(chip => {
     chip.addEventListener('click', () => {
       chips.forEach(c => c.classList.remove('active'));
       chip.classList.add('active');
-      const filter = chip.dataset.filter;
-      let visible = 0;
-      cards.forEach(card => {
-        const cardCats = card.dataset.cat.split(' ');
-        const show = filter === 'all' || cardCats.includes(filter);
-        card.style.display = show ? '' : 'none';
-        if (show) visible++;
-      });
-      countLabel.textContent = visible + ' proyecto' + (visible === 1 ? '' : 's');
+      activeFilter = chip.dataset.filter;
+      applyFilters();
     });
   });
+
+  searchInput.addEventListener('input', applyFilters);
+
   document.querySelectorAll('.thumb[data-id]').forEach(thumb => {
     thumb.addEventListener('click', () => {
       const id = thumb.dataset.id;
